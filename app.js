@@ -15,7 +15,7 @@ const inLineCss = require('nodemailer-juice');
 
 mongoose.Promise = global.Promise;
 //Production//
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect('mongodb+srv://wonder:wonder2021@cluster0.31gf8.mongodb.net/newsBlog?retryWrites=true&w=majority', {
   useUnifiedTopology: true, useNewUrlParser: true
 })
 .then(()=>console.log('Mongodb connected'))
