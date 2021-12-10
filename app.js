@@ -10,25 +10,24 @@ const fs = require('fs');
 const inLineCss = require('nodemailer-juice');
  require('./config/passport')(passport);
 
- env.config({ path: path.resolve(__dirname, './.env') });
- const app = express();
+ env.config({path:'./.env'});
+const app = express();
 
 mongoose.Promise = global.Promise;
 //Production//
-mongoose.connect('mongodb+srv://wonder:wonder2021@cluster0.31gf8.mongodb.net/newsBlog?retryWrites=true&w=majority', {
+if(process.env.NODE_ENV === 'production'){
+mongoose.connect(process.env.MONGODB_URL, {
   useUnifiedTopology: true, useNewUrlParser: true
 })
-.then(()=>console.log('Mongodb connected'))
+.then(()=>console.log('Mongodb for production connected'))
 .catch(err=>console.log(err)); 
-
-//development//
-/*
-mongoose.connect(process.env.localConnection, {
+}else{
+    mongoose.connect(process.env.localConnection, {
         useUnifiedTopology: true, useNewUrlParser: true
    })
    .then(()=>console.log('Mongodb connected'))
    .catch(err=>console.log(err));
-*/
+}
 
 
 app.use(express.urlencoded({extended: true}));
