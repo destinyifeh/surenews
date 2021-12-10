@@ -9,7 +9,7 @@ const Sitemap = require('react-router-sitemap').default;
 function generateSitemap(){
     return(
         new Sitemap(router)
-        .build('/')
+        .build('http://localhost:3000')
         .save('./public/sitemap.xml')
     );
 }
