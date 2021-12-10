@@ -1,0 +1,213 @@
+*{
+   margin:0;
+   padding:0;
+   font-family: 'roboto';
+
+}
+
+.header-nav{
+  background: green;
+  padding:10px;
+ 
+}
+.header-nav a{
+  color: white;
+  text-decoration: none;
+}
+.header-nav a:active{
+  color: black;
+}
+.header-nav a:hover{
+  color: black;
+}
+
+.create-post{
+  background: ghostwhite;
+  padding:15px;
+  box-shadow: 0px 2px 2px grey;
+}
+
+.delete, .edit{
+ padding:2px;
+ border-radius: 5px;
+ box-shadow:0px 2px 2px grey;
+ text-decoration: none;
+}
+.all-post a{
+  text-decoration: none;
+}
+.admin-header a{
+  color: white;
+  text-decoration: none;
+}
+.post-form label{
+  font-weight:bold;
+}
+.all-post{
+   border: 1px solid grey;
+   padding:10px;
+}
+.card{
+  background: ghostwhite !important;
+}
+
+.form-control{
+  width:100%;
+}
+
+.btn{
+  width:100%;
+}
+.card a{
+  text-decoration: none;
+}
+
+.footer{
+  background: ghostwhite;
+  border-top:1px solid grey;
+}
+.search input{
+   padding:15px;
+   width:100%;
+   border-radius: 10px  ;
+   background: ghostwhite;
+}
+.search button{
+  padding:15px;
+}
+.search{
+  background: url('./images/green.jpg') !important;
+  padding-top:20px;
+  padding-bottom: 20px;
+  margin-top: 1px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0px 2px 2px grey;
+  
+}
+.contact-form input{
+    border-radius: 10px !important;
+}
+.contact-form button{
+  border-radius: 10px !important;
+  box-shadow: 0px 2px 2px grey;
+}
+.contact-form label{
+  font-weight: bold;
+}
+.article-header{
+  font-weight: bold;
+  margin-top:10px;
+}
+
+.edit-form{
+  background: ghostwhite;
+  padding:15px;
+  box-shadow: 0px 2px 2px grey;
+}
+.headline{
+   position: absolute;
+   top:10.2em!important;
+   color:white;
+   
+   z-index:1;
+   padding:3px;
+}
+.show-title{
+  text-transform: capitalize!important;
+}
+.shares{
+  margin-right:5px!important;
+  text-decoration: none;
+  font-weight: bold !important;
+}
+.card-title{
+  text-transform: capitalize!important;
+}
+.reply{
+  font-weight:bold !important;
+  padding:5px !important;
+}
+.comment-card{
+  background: whitesmoke !important;
+}
+.comment-btn{
+  padding:5px;
+}
+.main-card{
+  background: white !important;
+}
+.homeInfo{
+  animation: blinker 2s linear infinite;
+
+}
+.modal-sub{
+  border-radius:5px;
+  box-shadow: 0px 2px 2px grey;
+}
+.sub-times{
+  cursor: pointer;
+}
+
+.removal{
+  background: ghostwhite;
+  padding:3px;
+}
+
+.loading{
+  font-family: cursive;
+  animation: blinker 2s linear infinite;
+}
+@keyframes blinker{
+50%{
+  opacity: 0;
+  
+}
+}
+
+
+
+
+
+
+/* OUTER CONTAINER */
+.tcontainer {
+  width: 100%;
+  overflow: hidden; /* Hide scroll bar */
+  background-color: ghostwhite;
+}
+ 
+/* MIDDLE CONTAINER */
+.ticker-wrap {
+  width: 100%;
+  padding-left: 100%; /* Push contents to right side of screen */
+ /* background-color: ghostwhite;*/
+}
+
+/* INNER CONTAINER */
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+.ticker-move {
+  /* Basically move items from right side of screen to left in infinite loop */
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 20s;
+}
+.ticker-move:hover{
+  animation-play-state: paused; /* Pause scroll on mouse hover */
+}
+
+/* ITEMS */
+.ticker-item{
+  display: inline-block; /* Lay items in a horizontal line */
+  padding: 0 2rem;
+}
+
+/*ticker end*/

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+</head>
+<body>
+    <div class=" header">
+        <h5 class="header-title ">Surenews</h5>
+    </div>
+      <div class="explore" >
+          <h5 class="text-center ">Explore the latest happening </h5>
+           <p class="">WE are not just the best news platform  but most reliable </p>
+         
+      </div>
+      <div class="main">
+        <p class="">Check out the trending news today now, surenews got you covered everyday</p>
+        <p class="main-title">Today's trending news live on surenews</p>
+        <p class="btn" ><a href="" >Click to view trending news </a></p>
+
+        <p class="main-title">Today's top news live on surenews</p>
+        <p class="btn" ><a href="">Click to view top news </a></p>
+
+        <p class="main-title">Recent news live on surenews</p>
+        <p class="btn" ><a href="">Click to view recent news </a></p>
+      </div>
+      <div id="todo"></div>
+     
+      <div class="footer">
+          <p class="">You are receiving this because you subscribed for our weekly newsletter</p>
+      <p class="foot"><a class="unsub" href="http://localhost:5000/mail-list/unsubscribe" >Unsubscribe</a></p>
+      
+          <p class=" ">&copy; 2021 <a href="http://localhost:5000" class="copy">surenews</a></p>
+      </div>
+    
+<style>
+    .copy{
+        text-decoration: none;
+        color: green;
+    }
+    .check{
+        text-align: center;
+    }
+      .main-title{
+          color: black;
+          font-weight:bold;
+          text-align: center;
+      }
+     .main{
+        text-align: center !important;
+        
+     }
+     .btn a{
+         text-decoration: none;
+         color: green;
+         text-align: center !important;
+         font-weight:bold;
+     }
+     
+    body{
+        background-color: ghostwhite;
+        padding:0;
+        margin:0;
+        color: black;
+    }
+
+    .header-title{
+         text-align: center;
+         background-color: green;
+         color:white;
+         width: 100%;
+         font-weight: bold;
+     }
+    .header{
+        padding:10px;
+        background-color: green;
+    }
+    .explore{
+        margin-top: 3em;
+        margin-bottom: 3em;
+        text-align: center;
+    }
+    .explore h5{
+        font-family: cursive;
+        font-weight: bold;
+
+    }
+    .main-link{
+        text-align: center !important;
+    }
+    .footer {
+        background-color: ghostwhite;
+        text-align: center !important;
+        margin-top: 2em;
+    }
+   
+     .trend{
+         text-align: center;
+     }
+    
+   
+    .footer{
+        text-align:center ;
+    }
+    </style>
+
+    <script type="text/JavaScript">
+       
+        const todo = document.getElementById('todo')
+        console.log(todo.innerHTML)
+        axios.get('http://localhost:5000/news')
+        .then(res=>{
+            console.log(res.data)
+             //todo.innerHTML += `<h5>${ res.data.map(item=>item.title)} </h5>`;
+            let posts = Array.from(res.data)
+            posts.map((post)=>{
+                todo.innerHTML += `<h5><a href="/${post.slug}">${post.title}</a></h5>`
+            })
+        })
+        .catch(err=>{
+            console.log(err.response)
+        })
+        //console.log(axios)
+   </script>
+</body>
+
+</html>
