@@ -47,7 +47,7 @@ class Home extends Component {
                  toast.error('Cant submit empty input')
                  return false;
              }else{
-                 axios.post('http://localhost:5000/subscription/email', subscription)
+                 axios.post('https://surenews.herokuapp.com/subscription/email', subscription)
                  .then(res=>{
                      console.log(res.data)
                      this.setState({subEmail: ''})
@@ -65,7 +65,7 @@ class Home extends Component {
              componentDidMount(){
           
                    //Recent news//
-              axios.get('http://localhost:5000/recent/news')
+              axios.get('https://surenews.herokuapp.com/recent/news')
              .then(res=>{
                    console.log(res.data)
                    this.setState({recent: res.data})
@@ -74,7 +74,7 @@ class Home extends Component {
 
                 
                    //Trending news//
-              axios.get('http://localhost:5000/trending/news')
+              axios.get('https://surenews.herokuapp.com/trending/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({trending: res.data})
@@ -83,7 +83,7 @@ class Home extends Component {
 
                      
                    //Top news//
-              axios.get('http://localhost:5000/news')
+              axios.get('https://surenews.herokuapp.com/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({news: res.data})
@@ -92,7 +92,7 @@ class Home extends Component {
 
                       
                    //interest news//
-              axios.get('http://localhost:5000/interests/news')
+              axios.get('https://surenews.herokuapp.com/interests/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({interests: res.data})
@@ -101,7 +101,7 @@ class Home extends Component {
 
                         
                    //Breaking news//
-              axios.get('http://localhost:5000/breakings/news')
+              axios.get('https://surenews.herokuapp.com/breakings/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({breakings: res.data})

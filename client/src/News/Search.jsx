@@ -36,7 +36,7 @@ class Search extends Component {
 
 
             componentDidMount(){
-                axios.get('http://localhost:5000/paginated/news')
+                axios.get('https://surenews.herokuapp.com/paginated/news')
                 .then(res=>{
                     console.log(res.data)
                     this.setState({news: res.data})

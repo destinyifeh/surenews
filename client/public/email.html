@@ -40,7 +40,7 @@
      
       <div class="footer">
           <p class="">You are receiving this because you subscribed for our weekly newsletter</p>
-      <p class="foot"><a class="unsub" href="http://localhost:5000/mail-list/unsubscribe" >Unsubscribe</a></p>
+      <p class="foot"><a class="unsub" href="https://surenews.herokuapp.com/mail-list/unsubscribe" >Unsubscribe</a></p>
       
           <p class=" ">&copy; 2021 <a href="http://localhost:5000" class="copy">surenews</a></p>
       </div>
@@ -120,7 +120,7 @@
        
         const todo = document.getElementById('todo')
         console.log(todo.innerHTML)
-        axios.get('http://localhost:5000/news')
+        axios.get('https://surenews.herokuapp.com/news')
         .then(res=>{
             console.log(res.data)
              //todo.innerHTML += `<h5>${ res.data.map(item=>item.title)} </h5>`;

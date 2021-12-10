@@ -33,7 +33,7 @@ class Forgot extends Component {
                     email: email,
                 }
                 console.log(userEmail)
-                axios.post('http://localhost:5000/forgot/password', userEmail)
+                axios.post('https://surenews.herokuapp.com/forgot/password', userEmail)
                 .then(res=>{
                     console.log(res.data)
                      this.setState({
@@ -79,7 +79,7 @@ class Forgot extends Component {
 
           componentDidMount(){
               this.inputRef.current.focus();
-              axios.get('http://localhost:5000/signup/users')
+              axios.get('https://surenews.herokuapp.com/signup/users')
               .then(res=>{
                   console.log(res.data)
                   this.setState({users: res.data})

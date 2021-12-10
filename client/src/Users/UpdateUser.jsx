@@ -46,7 +46,7 @@ function UpdateUser(props){
            
         }
            console.log(updateAdmin)
-           axios.put('http://localhost:5000/api/user/data-update/'+props.match.params.id, updateAdmin)
+           axios.put('https://surenews.herokuapp.com/api/user/data-update/'+props.match.params.id, updateAdmin)
            .then(res=>{
                console.log(res.data)
                toast.success('Record updated')
@@ -72,7 +72,7 @@ function UpdateUser(props){
        let userId = props.match.params.id;
        console.log(userId)
      
-       axios.get('http://localhost:5000/api/admin/update/'+userId)
+       axios.get('https://surenews.herokuapp.com/api/admin/update/'+userId)
       .then(res=>{
           console.log(res.data)
           setEmail(res.data.email);
@@ -82,7 +82,7 @@ function UpdateUser(props){
           console.log(err.response)
       });
 
-        axios.get('http://localhost:5000/signup/users')
+        axios.get('https://surenews.herokuapp.com/signup/users')
       .then(res=>{
           console.log(res.data)
           setUsers(res.data);

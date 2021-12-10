@@ -22,7 +22,7 @@ class AdminPosts extends Component {
            componentDidMount(){
 
                              //Paginated news//
-           axios.get('http://localhost:5000/paginated/news')
+           axios.get('https://surenews.herokuapp.com/paginated/news')
            .then(res=>{
            console.log(res.data)
            this.setState({data: res.data})
@@ -44,7 +44,7 @@ class AdminPosts extends Component {
             updateAfterDelete=()=>{
                 setTimeout(()=>{
     
-                    axios.get('http://localhost:5000/paginated/news')
+                    axios.get('https://surenews.herokuapp.com/paginated/news')
                     // .then(res=>console.log(res.data))
                     .then(res=>{
                         this.setState({
@@ -63,7 +63,7 @@ class AdminPosts extends Component {
               console.log(slug)
               let sendDeleteRequest = async () => {
                try{
-                 let removeNews = await axios.delete('http://localhost:5000/delete/news/'+slug)
+                 let removeNews = await axios.delete('https://surenews.herokuapp.com/delete/news/'+slug)
                   console.log(removeNews)
                   this.setState({data: this.state.data.filter(otherNews=>otherNews.slug !== slug)})
                   toast.success('News deleted')

@@ -67,7 +67,7 @@ class Reset extends Component {
                     }
                       console.log(passwordReset)
 
-                      axios.post(`http://localhost:5000/reset-password/${this.props.match.params.token}`, passwordReset)
+                      axios.post(`https://surenews.herokuapp.com/reset-password/${this.props.match.params.token}`, passwordReset)
                       .then(res=>{
                           console.log(res.data)
                           toast.success('Success ')
@@ -83,7 +83,7 @@ class Reset extends Component {
 
 
   componentDidMount(){
-      axios.get(`http://localhost:5000/reset-password/${this.props.match.params.token}`)
+      axios.get(`https://surenews.herokuapp.com/reset-password/${this.props.match.params.token}`)
       .then(res=>{
           console.log(res.data)
           if(res.data === 'Password reset token is invalid or has expired'){

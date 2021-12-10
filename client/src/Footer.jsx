@@ -86,7 +86,7 @@ class Footer extends Component {
                return false;
            }  else{
               
-               axios.post('http://localhost:5000/email-messages', messages)
+               axios.post('https://surenews.herokuapp.com/email-messages', messages)
                .then(res=>{
                    console.log(res.data)
                    this.setState({

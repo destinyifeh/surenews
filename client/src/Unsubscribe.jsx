@@ -41,7 +41,7 @@ function Unsubscribe(){
 
 
      useEffect(()=>{
-        axios.get('http://localhost:5000/email/subscribers')
+        axios.get('https://surenews.herokuapp.com/email/subscribers')
         .then(res=>{
            console.log(res.data)
            let subscribers = res.data;
@@ -54,7 +54,7 @@ function Unsubscribe(){
      let handleRemove=(id)=>{
        console.log(id)
 
-       axios.delete('http://localhost:5000/remove-mail/list/'+id)
+       axios.delete('https://surenews.herokuapp.com/remove-mail/list/'+id)
        .then(res=>{
            console.log(res.data)
            let remove = email.filter(el=>el._id !== id)

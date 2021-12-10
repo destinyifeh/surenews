@@ -49,7 +49,7 @@ class Show extends Component {
                }
                let sendComment = async () =>{
                  try{
-                  let comment = await axios.post(`http://localhost:5000/comment/news/${this.props.match.params.slug}`, newComment)
+                  let comment = await axios.post(`https://surenews.herokuapp.com/comment/news/${this.props.match.params.slug}`, newComment)
                    console.log(comment.data.comments)
                    toast.success('Comment posted')
                    this.setState({
@@ -69,7 +69,7 @@ class Show extends Component {
 
 
              componentDidMount(){
-                 axios.get(`http://localhost:5000/showPost/${this.props.match.params.slug}`)
+                 axios.get(`https://surenews.herokuapp.com/showPost/${this.props.match.params.slug}`)
                  .then(res=>{
                    console.log(res.data)
                    this.setState({
@@ -97,7 +97,7 @@ class Show extends Component {
                     }
                  })
 
-                 axios.get(`http://localhost:5000/comment/news/${this.props.match.params.slug}`)
+                 axios.get(`https://surenews.herokuapp.com/comment/news/${this.props.match.params.slug}`)
                  .then(res=>{
                   // console.log(res.data)
                    this.setState({
@@ -108,7 +108,7 @@ class Show extends Component {
                  .catch(err=>{console.log(err.response)})
 
                    //Similar news//
-           axios.get(`http://localhost:5000/similar/news/${this.props.match.params.slug}`)
+           axios.get(`https://surenews.herokuapp.com/similar/news/${this.props.match.params.slug}`)
             .then(res=>{
             console.log(res.data)
             this.setState({similar: res.data})
@@ -117,7 +117,7 @@ class Show extends Component {
 
             
                    //Recent news//
-           axios.get(`http://localhost:5000/recent/news/${this.props.match.params.slug}`)
+           axios.get(`https://surenews.herokuapp.com/recent/news/${this.props.match.params.slug}`)
            .then(res=>{
            console.log(res.data)
            this.setState({recent: res.data})
@@ -131,7 +131,7 @@ class Show extends Component {
 
        loadData(){
      
-        axios.get(`http://localhost:5000/showPost/${this.props.match.params.slug}`)
+        axios.get(`https://surenews.herokuapp.com/showPost/${this.props.match.params.slug}`)
         .then(res=>{
           console.log(res.data)
           this.setState({
@@ -155,7 +155,7 @@ class Show extends Component {
            }
         })
 
-        axios.get(`http://localhost:5000/comment/news/${this.props.match.params.slug}`)
+        axios.get(`https://surenews.herokuapp.com/comment/news/${this.props.match.params.slug}`)
         .then(res=>{
          // console.log(res.data)
           this.setState({
@@ -166,7 +166,7 @@ class Show extends Component {
         .catch(err=>{console.log(err.response)})
 
            //Similar news//
-           axios.get(`http://localhost:5000/similar/news/${this.props.match.params.slug}`)
+           axios.get(`https://surenews.herokuapp.com/similar/news/${this.props.match.params.slug}`)
             .then(res=>{
             console.log(res.data)
             this.setState({similar: res.data})
@@ -175,7 +175,7 @@ class Show extends Component {
 
             
                    //Recent news//
-           axios.get(`http://localhost:5000/recent/news/${this.props.match.params.slug}`)
+           axios.get(`https://surenews.herokuapp.com/recent/news/${this.props.match.params.slug}`)
            .then(res=>{
            console.log(res.data)
            this.setState({recent: res.data})

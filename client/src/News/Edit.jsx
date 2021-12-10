@@ -128,7 +128,7 @@ return true;
 
 
     componentDidMount(){
-        axios.get(`http://localhost:5000/editNews/${this.props.match.params.slug}`)
+        axios.get(`https://surenews.herokuapp.com/editNews/${this.props.match.params.slug}`)
         .then(res=>{
           console.log(res.data)
           this.setState({
@@ -140,7 +140,7 @@ return true;
         })
         .catch(err=>console.log(err.response));
 
-        axios.get('http://localhost:5000/news')
+        axios.get('https://surenews.herokuapp.com/news')
         .then(res=>{
             console.log(res.data)
             this.setState({news: res.data})
@@ -170,7 +170,7 @@ return true;
         
            let sendUpdateRequest = async ()=>{
            try{
-          let updateNews = await axios.put(`http://localhost:5000/updateNews/${this.props.match.params.slug}`, data)
+          let updateNews = await axios.put(`https://surenews.herokuapp.com/updateNews/${this.props.match.params.slug}`, data)
           console.log(updateNews.data)
             toast.success('News updated')
             

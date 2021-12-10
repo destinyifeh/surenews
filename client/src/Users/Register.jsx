@@ -110,7 +110,7 @@ class Register extends Component {
                         confirm:confirm
                     }
                     console.log(user)
-                     axios.post('http://localhost:5000/admin/signup', user)
+                     axios.post('https://surenews.herokuapp.com/admin/signup', user)
                      .then(res=>{
                          console.log(res.data)
                          this.setState({
@@ -137,7 +137,7 @@ class Register extends Component {
                 }
 
               componentDidMount(){
-                  axios.get('http://localhost:5000/signup/users')
+                  axios.get('https://surenews.herokuapp.com/signup/users')
                   .then(res=>{
                       console.log(res.data)
                       this.setState({users: res.data})
