@@ -241,12 +241,12 @@ class Show extends Component {
    </div>*/}
 
 <FacebookShareButton className="shares text-success">Share</FacebookShareButton>
-<FacebookShareButton url={`/news/${this.state.slug}`} quote={this.state.title}><FacebookIcon size={32} round={true}/></FacebookShareButton>
-<TwitterShareButton url={`/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TwitterIcon size={32} round={true}/></TwitterShareButton>
-<LinkedinShareButton url={`/news/${this.state.slug}`} title={this.state.title} description={this.state.detail.substring(0, 60)} source={'http://localhost:3000'} className="shareBtn"><LinkedinIcon size={32} round={true}/></LinkedinShareButton>
-<WhatsappShareButton url={`/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><WhatsappIcon size={32} round={true}/></WhatsappShareButton>
-<TelegramShareButton url={`/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TelegramIcon size={32} round={true}/></TelegramShareButton>
-<EmailShareButton url={`/news/${this.state.slug}`} subject={this.state.title} body={this.state.detail.substring(0, 60)} className="shareBtn"><EmailIcon size={32} round={true}/></EmailShareButton>
+<FacebookShareButton url={`https://surenews.herokuapp.com/news${this.state.slug}`} quote={this.state.title}><FacebookIcon size={32} round={true}/></FacebookShareButton>
+<TwitterShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TwitterIcon size={32} round={true}/></TwitterShareButton>
+<LinkedinShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} description={this.state.detail.substring(0, 60)} source={'http://localhost:3000'} className="shareBtn"><LinkedinIcon size={32} round={true}/></LinkedinShareButton>
+<WhatsappShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><WhatsappIcon size={32} round={true}/></WhatsappShareButton>
+<TelegramShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TelegramIcon size={32} round={true}/></TelegramShareButton>
+<EmailShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} subject={this.state.title} body={this.state.detail.substring(0, 60)} className="shareBtn"><EmailIcon size={32} round={true}/></EmailShareButton>
 
                       {this.state.allowComment? 
                     <div className="mt-4">
