@@ -47,7 +47,7 @@ class Home extends Component {
                  toast.error('Cant submit empty input')
                  return false;
              }else{
-                 axios.post('https://surenews.herokuapp.com/subscription/email', subscription)
+                 axios.post('/subscription/email', subscription)
                  .then(res=>{
                      console.log(res.data)
                      this.setState({subEmail: ''})
@@ -65,7 +65,7 @@ class Home extends Component {
              componentDidMount(){
           
                    //Recent news//
-              axios.get('https://surenews.herokuapp.com/recent/news')
+              axios.get('/recent/news')
              .then(res=>{
                    console.log(res.data)
                    this.setState({recent: res.data})
@@ -74,7 +74,7 @@ class Home extends Component {
 
                 
                    //Trending news//
-              axios.get('https://surenews.herokuapp.com/trending/news')
+              axios.get('/trending/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({trending: res.data})
@@ -83,7 +83,7 @@ class Home extends Component {
 
                      
                    //Top news//
-              axios.get('https://surenews.herokuapp.com/news')
+              axios.get('/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({news: res.data})
@@ -92,7 +92,7 @@ class Home extends Component {
 
                       
                    //interest news//
-              axios.get('https://surenews.herokuapp.com/interests/news')
+              axios.get('/interests/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({interests: res.data})
@@ -101,7 +101,7 @@ class Home extends Component {
 
                         
                    //Breaking news//
-              axios.get('https://surenews.herokuapp.com/breakings/news')
+              axios.get('/breakings/news')
               .then(res=>{
                     console.log(res.data)
                     this.setState({breakings: res.data})

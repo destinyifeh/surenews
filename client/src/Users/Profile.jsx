@@ -9,7 +9,7 @@ function Profile() {
       const [users, setUsers] = useState([]) ;
       useEffect(()=>{
         toast.success('Welcome');
-        axios.get('https://surenews.herokuapp.com/signup/users')
+        axios.get('/signup/users')
         .then(res=>{
           let data = res.data;
            setUsers(data)
@@ -32,7 +32,7 @@ function Profile() {
 
      const handleDelete = (id) =>{
        console.log(id)
-       axios.delete('https://surenews.herokuapp.com/user/delete/'+id)
+       axios.delete('/user/delete/'+id)
        .then(res=>{
          console.log(res.data)
          let otherUsers = users.filter(el=>el._id !== id)

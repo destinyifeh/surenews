@@ -45,7 +45,7 @@ class Login extends Component {
           }
 
           console.log(loginUser)
-          axios.post('https://surenews.herokuapp.com/admin/signin', loginUser)
+          axios.post('/admin/signin', loginUser)
           .then(res=>{
             //  console.log(res.data.username)
               if(res.data === 'Incorrect password'){
@@ -94,7 +94,7 @@ class Login extends Component {
 
 
     componentDidMount(){
-        axios.get('https://surenews.herokuapp.com/signup/users')
+        axios.get('/signup/users')
         .then(res=>{
             //console.log(res.data)
             this.setState({users: res.data})

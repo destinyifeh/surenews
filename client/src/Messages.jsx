@@ -15,7 +15,7 @@ class Messages extends Component {
     }
             
     componentDidMount(){
-        axios.get('https://surenews.herokuapp.com/mail-messages')
+        axios.get('/mail-messages')
         .then(res=>{
             console.log(res.data)
             this.setState({messages: res.data})
@@ -23,7 +23,7 @@ class Messages extends Component {
         .catch(err=>console.log(err.response))
 
         //read mail//
-        axios.get('https://surenews.herokuapp.com/read-messages')
+        axios.get('/read-messages')
         .then(res=>{
             console.log(res.data)
             this.setState({readMail: res.data})
@@ -32,7 +32,7 @@ class Messages extends Component {
     }  
        updateMessage(){
 
-        axios.get('https://surenews.herokuapp.com/mail-messages')
+        axios.get('/mail-messages')
         .then(res=>{
             console.log(res.data)
             this.setState({messages: res.data})
@@ -40,7 +40,7 @@ class Messages extends Component {
         .catch(err=>console.log(err.response))
 
         //read mail//
-        axios.get('https://surenews.herokuapp.com/read-messages')
+        axios.get('/read-messages')
         .then(res=>{
             console.log(res.data)
             this.setState({readMail: res.data})
@@ -50,7 +50,7 @@ class Messages extends Component {
 
         handleDelete(id){
             console.log(id)
-            axios.delete(`https://surenews.herokuapp.com/delete/message/${id}`)
+            axios.delete(`/delete/message/${id}`)
             .then(res=>{
                 console.log(res.data)
                 this.setState({messages: this.state.messages.filter(el=>el._id!==id)})

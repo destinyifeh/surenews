@@ -35,7 +35,7 @@ class Notifications extends Component {
               }
               console.log(mailList)
 
-              axios.post('https://surenews.herokuapp.com/subscribers/mailist', mailList)
+              axios.post('/subscribers/mailist', mailList)
               .then(res=>{
                   console.log(res.data)
                   toast.success('Subscription message sent')
@@ -51,7 +51,7 @@ class Notifications extends Component {
 
 
       componentDidMount(){
-         axios.get('https://surenews.herokuapp.com/email/subscribers')
+         axios.get('/email/subscribers')
          .then(res=>{
             console.log(res.data)
              this.setState({subscribers: res.data})

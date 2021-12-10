@@ -156,7 +156,6 @@
 }
 
 .loading{
-  font-family: cursive;
   animation: blinker 2s linear infinite;
 }
 @keyframes blinker{
@@ -198,7 +197,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: ticker;
-  animation-duration: 20s;
+  animation-duration: 30s;
 }
 .ticker-move:hover{
   animation-play-state: paused; /* Pause scroll on mouse hover */

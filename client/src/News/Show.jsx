@@ -49,7 +49,7 @@ class Show extends Component {
                }
                let sendComment = async () =>{
                  try{
-                  let comment = await axios.post(`https://surenews.herokuapp.com/comment/news/${this.props.match.params.slug}`, newComment)
+                  let comment = await axios.post(`/comment/news/${this.props.match.params.slug}`, newComment)
                    console.log(comment.data.comments)
                    toast.success('Comment posted')
                    this.setState({
@@ -69,7 +69,7 @@ class Show extends Component {
 
 
              componentDidMount(){
-                 axios.get(`https://surenews.herokuapp.com/showPost/${this.props.match.params.slug}`)
+                 axios.get(`/showPost/${this.props.match.params.slug}`)
                  .then(res=>{
                    console.log(res.data)
                    this.setState({
@@ -97,7 +97,7 @@ class Show extends Component {
                     }
                  })
 
-                 axios.get(`https://surenews.herokuapp.com/comment/news/${this.props.match.params.slug}`)
+                 axios.get(`/comment/news/${this.props.match.params.slug}`)
                  .then(res=>{
                   // console.log(res.data)
                    this.setState({
@@ -108,7 +108,7 @@ class Show extends Component {
                  .catch(err=>{console.log(err.response)})
 
                    //Similar news//
-           axios.get(`https://surenews.herokuapp.com/similar/news/${this.props.match.params.slug}`)
+           axios.get(`/similar/news/${this.props.match.params.slug}`)
             .then(res=>{
             console.log(res.data)
             this.setState({similar: res.data})
@@ -117,7 +117,7 @@ class Show extends Component {
 
             
                    //Recent news//
-           axios.get(`https://surenews.herokuapp.com/recent/news/${this.props.match.params.slug}`)
+           axios.get(`/recent/news/${this.props.match.params.slug}`)
            .then(res=>{
            console.log(res.data)
            this.setState({recent: res.data})
@@ -131,7 +131,7 @@ class Show extends Component {
 
        loadData(){
      
-        axios.get(`https://surenews.herokuapp.com/showPost/${this.props.match.params.slug}`)
+        axios.get(`/showPost/${this.props.match.params.slug}`)
         .then(res=>{
           console.log(res.data)
           this.setState({
@@ -155,7 +155,7 @@ class Show extends Component {
            }
         })
 
-        axios.get(`https://surenews.herokuapp.com/comment/news/${this.props.match.params.slug}`)
+        axios.get(`/comment/news/${this.props.match.params.slug}`)
         .then(res=>{
          // console.log(res.data)
           this.setState({
@@ -166,7 +166,7 @@ class Show extends Component {
         .catch(err=>{console.log(err.response)})
 
            //Similar news//
-           axios.get(`https://surenews.herokuapp.com/similar/news/${this.props.match.params.slug}`)
+           axios.get(`/similar/news/${this.props.match.params.slug}`)
             .then(res=>{
             console.log(res.data)
             this.setState({similar: res.data})
@@ -175,7 +175,7 @@ class Show extends Component {
 
             
                    //Recent news//
-           axios.get(`https://surenews.herokuapp.com/recent/news/${this.props.match.params.slug}`)
+           axios.get(`/recent/news/${this.props.match.params.slug}`)
            .then(res=>{
            console.log(res.data)
            this.setState({recent: res.data})
@@ -227,7 +227,7 @@ class Show extends Component {
                        </div>
                     )
                 })}
-<div className="a2a_kit a2a_kit_size_32 a2a_default_style">
+{/*<div className="a2a_kit a2a_kit_size_32 a2a_default_style">
 <Link className="shares text-success">Share</Link>
 
 <Link className="a2a_button_facebook"></Link>
@@ -238,14 +238,15 @@ class Show extends Component {
 <Link className="a2a_button_twitter"></Link>
 <Link className="a2a_dd" to="https://www.addtoany.com/share"></Link>
 
-</div>
+   </div>*/}
+
 <FacebookShareButton className="shares text-success">Share</FacebookShareButton>
-<FacebookShareButton url={`https://surenews.herokuapp.com//news/${this.state.slug}`} quote={this.state.title}><FacebookIcon size={32} round={true}/></FacebookShareButton>
-<TwitterShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TwitterIcon size={32} round={true}/></TwitterShareButton>
-<LinkedinShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} description={this.state.detail.substring(0, 60)} source={'http://localhost:3000'} className="shareBtn"><LinkedinIcon size={32} round={true}/></LinkedinShareButton>
-<WhatsappShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><WhatsappIcon size={32} round={true}/></WhatsappShareButton>
-<TelegramShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TelegramIcon size={32} round={true}/></TelegramShareButton>
-<EmailShareButton url={`https://surenews.herokuapp.com/news/${this.state.slug}`} subject={this.state.title} body={this.state.detail.substring(0, 60)} className="shareBtn"><EmailIcon size={32} round={true}/></EmailShareButton>
+<FacebookShareButton url={`/news/${this.state.slug}`} quote={this.state.title}><FacebookIcon size={32} round={true}/></FacebookShareButton>
+<TwitterShareButton url={`/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TwitterIcon size={32} round={true}/></TwitterShareButton>
+<LinkedinShareButton url={`/news/${this.state.slug}`} title={this.state.title} description={this.state.detail.substring(0, 60)} source={'http://localhost:3000'} className="shareBtn"><LinkedinIcon size={32} round={true}/></LinkedinShareButton>
+<WhatsappShareButton url={`/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><WhatsappIcon size={32} round={true}/></WhatsappShareButton>
+<TelegramShareButton url={`/news/${this.state.slug}`} title={this.state.title} className="shareBtn"><TelegramIcon size={32} round={true}/></TelegramShareButton>
+<EmailShareButton url={`/news/${this.state.slug}`} subject={this.state.title} body={this.state.detail.substring(0, 60)} className="shareBtn"><EmailIcon size={32} round={true}/></EmailShareButton>
 
                       {this.state.allowComment? 
                     <div className="mt-4">

@@ -18,7 +18,7 @@ class ReadMess extends Component {
             
 
        componentDidMount(){
-           axios.get(`https://surenews.herokuapp.com/message/${this.props.match.params.id}`)
+           axios.get(`/message/${this.props.match.params.id}`)
             .then(res=>{
                 console.log(res.data)
                 this.setState({

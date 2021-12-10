@@ -24,7 +24,7 @@ class AllPosts extends Component {
            componentDidMount(){
 
                       //Paginated news//
-           axios.get('https://surenews.herokuapp.com/paginated/news')
+           axios.get('/paginated/news')
            .then(res=>{
            console.log(res.data)
            this.setState({data: res.data})

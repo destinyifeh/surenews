@@ -16,7 +16,7 @@ class Header2 extends Component {
 
 
                 componentDidMount(){
-                    axios.get('https://surenews.herokuapp.com/email-messages')
+                    axios.get('/email-messages')
                     .then(res=>{
                         console.log(res.data)
                         this.setState({inbox: res.data.length})

@@ -153,7 +153,7 @@ onSubmit=(e)=>{
       }else{
        let newPost = async ()=>{
        try{
-    let newPost = await axios.post('http://localhost:5000/news', data)
+    let newPost = await axios.post('/news', data)
     console.log(newPost.data)
     let {news} = this.state;
       news.unshift(newPost.data)
@@ -184,7 +184,7 @@ onSubmit=(e)=>{
 
     componentDidMount(){
 
-  axios.get('http://localhost:5000/news')
+  axios.get('/news')
        // .then(res=>console.log(res.data))
        .then(res=>{
            this.setState({
