@@ -71,7 +71,7 @@ app.post('/subscribers/mailist', (req, res)=>{
          }
      });
  
-      fs.readFile('./client/public/email.html', {encoding: 'utf-8'}, function(err, html){
+      fs.readFile('./client/build/email.html', {encoding: 'utf-8'}, function(err, html){
            if(err){
                console.log(err)
            }
