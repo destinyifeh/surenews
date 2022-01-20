@@ -5,6 +5,9 @@ const passport = require('passport');
 const crypto = require('crypto');
 const async = require('async');
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+
+dotenv.config()
 
 require('../models/User');
 
@@ -20,7 +23,7 @@ router.post('/admin/signup', async(req, res)=>{
             password: securePassword,
       }
     
-      if(req.body.username == 'surenews'){
+      if(req.body.username == process.env.isAdmin){
           newUser.superAdmin=true;
       }else{
           newUser.superAdmin=false;
@@ -127,8 +130,8 @@ router.post('/forgot/password', function(req, res, next) {
           port: 465,
           secure: true,
           auth: {
-            user: 'josephlevitt2555@gmail.com',
-            pass: 'wonder5555',
+            user: process.env.EMAIL_GMAIL,
+            pass: process.env.EMAIL_PASS,
              
           },
           tls:{
@@ -137,7 +140,7 @@ router.post('/forgot/password', function(req, res, next) {
       });
         var mailOptions = {
           to: user.email,
-          from: 'Surenews <noreply.josephlevitt2555@gmail.com>',
+          from: `Surenews <noreply.${process.env.EMAIL_GMAIL}>`,
           subject: 'Surenews Password Reset',
           text: 'You are receiving this because you (or someone else) have requested the reset of the password for your admin account.\n\n' +
             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -213,8 +216,8 @@ router.post('/reset/:token', function(req, res) {
           port: 465,
           secure: true,
           auth: {
-            user: 'josephlevitt2555@gmail.com',
-                pass: 'wonder5555',
+            user: process.env.EMAIL_GMAIL,
+            pass: process.env.EMAIL_PASS,
              
           },
           tls:{
@@ -223,7 +226,7 @@ router.post('/reset/:token', function(req, res) {
       });
         var mailOptions = {
           to: user.email,
-          from: 'Surenews<noreply.josephlevitt2555@gmail.com>',
+          from: `Surenews<noreply.${process.env.EMAIL_GMAIL}>`,
           subject: 'Password Successfully Changed',
           text: 'Hello,\n\n' +
             'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'

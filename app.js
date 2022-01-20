@@ -5,12 +5,12 @@ const session = require('cookie-session');
 const passport = require('passport');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const env = require('dotenv');
+const dotenv = require('dotenv');
 const fs = require('fs');
 const inLineCss = require('nodemailer-juice');
  require('./config/passport')(passport);
-
- env.config({path:'./.env'});
+dotenv.config()
+ 
 const app = express();
 
 mongoose.Promise = global.Promise;

@@ -39,48 +39,6 @@ router.delete('/remove-mail/list/:id', async(req, res)=>{
 });
 
 
-/*
-router.post('/subscribers/mailist', (req, res)=>{
-    console.log(req.body.mail)
-
-       let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-          user: 'mattdamon1134@gmail.com',
-              pass: 'wonder5555',
-           
-        },
-        tls:{
-          rejectUnauthorized:false,
-        }
-    });
-
-      fs.readFile('email.jsx', {encoding: 'utf-8'}, function(err, html){
-          if(err){
-              console.log(err)
-          }
-    var mailOptions = {
-        to: user.email,
-        from: 'Vicky interior designs admin password reset<noreply.mattdamon1134@gmail.com>',
-        subject: 'Your password has been changed',
-        html: html
-      };
-
-      transporter.sendMail(mailOptions, function(error, info){
-          if(error){
-              console.log(error)
-              res.status(400).json('Error:'+''+ error)
-          }else{
-              console.log(info.response)
-              res.json('Email sent:' + " "+ info.response)
-          }
-      })
-      //fs//
-    })
-       
-})*/
 
 
 module.exports = router;

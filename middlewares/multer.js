@@ -1,6 +1,8 @@
 const multer = require('multer');
 const cloudinary = require('cloudinary');
+const dotenv = require('dotenv');
 
+dotenv.config();
 
 
 
@@ -24,10 +26,11 @@ function fileFilter(req, file, cb){
 
 
 cloudinary.config({
-    cloud_name: 'dvyhqcxxe',
-    api_key: '326931785763852',
-    api_secret:  'DLgJqDs03VNPcbYIc87xZAyqSxQ'
+    cloud_name: process.env.Cloud_Name,
+    api_key: process.env.Api_Key,
+    api_secret: process.env.Api_Secret
 }); 
+
 
 
 
